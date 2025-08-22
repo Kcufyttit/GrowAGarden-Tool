@@ -10,19 +10,21 @@ Menu, Tray, Icon, RobloxIcon.png
 Gui -Resize
 Gui -MinimizeBox
 Gui, Show, w260 h620 x1333 y280 NoActivate, Gardening Tool
-;WinSet, AlwaysOnTop, 1, Gardening Tool
+WinSet, AlwaysOnTop, 1, Gardening Tool
 Gui, Font, s7
 Gui, Add, Checkbox, x0 y0 vAlwaysOnTop gToggleAlwaysOnTop, Always On Top
 ;Gui, Add, Button, x0 y0 gRefresh, Reload
-Gui, Font, s15 cGreen
-Gui, Add, Text, y25 x2 BackgroundTrans, Seeds
-Gui, Font, s13 w1000 cRed
-Gui, Add, Text, y0 x183 BackgroundTrans, Press
-Gui, Add, Text, y+3 x190 BackgroundTrans, ESC
-Gui, Add, Text, y+3 x198 BackgroundTrans, To
-Gui, Add, Text, y+3 x187 BackgroundTrans, Stop
+Gui, Font, s14 cGreen
+Gui, Add, Text, y35 x2 BackgroundTrans, Seeds
+; Gui, Font, s13 w1000 cRed
+; Gui, Add, Text, y0 x183 BackgroundTrans, Press
+; Gui, Add, Text, y+3 x190 BackgroundTrans, ESC
+; Gui, Add, Text, y+3 x198 BackgroundTrans, To
+; Gui, Add, Text, y+3 x187 BackgroundTrans, Stop
+Gui, Font, s7
+Gui, Add, Button, y12 x215 gUpdate, Update
 Gui, Font, s13
-Gui, Add, Button, y1 x99 gEverything, ALL`nSEEDS
+Gui, Add, Button, y75 x130 gEverything, ALL`nSEEDS
 Gui, Add, Button, y57 x5 gCarrots, Carrots
 Gui, Add, Button, y+5 x5 gStrawberry, Strawberry
 Gui, Add, Button, y+5 x5 gBlueberry, Blueberry
@@ -51,17 +53,27 @@ Gui, Add, Button, y+5 x130 gElderBerry, ElderBerry
 Gui, Add, Button, y+5 x130 gRomanesco, Romanesco
 Gui, Font, s6 cBlack
 Gui, Add, Text, x0 y612 BackgroundTrans, 1920x1080
-Gui, Add, Text, x240 y0 BackgroundTrans, V3.4
-Gui, Add, Text, x182 y612 BackgroundTrans, Made By Kcufyttit
+Gui, Add, Text, x200 y612 BackgroundTrans, Made By Kcufyttit
+Gui, Font, s7 cBlack
+Gui, Add, Text, x237 y0 BackgroundTrans, V3.6
 Gui, Add, Picture, x0 y0 w260 h620, RobloxBackground.png
 Return
 
 
 
+Update:
+UrlDownloadToFile, https://github.com/Kcufyttit/GrowAGarden-Tool/archive/refs/heads/main.zip, Update.zip
+MsgBox, Close the tool and you should find the new Update.zip`nJust extract the contents and replace the old files for the new tool!
+ExitApp
+return
+
 
 Everything:
 Loop, 
 {
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
+Progress, b fs30 ctRed cwBlack h60 w500 zh0 y900, Press Esc/Escape to stop!
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
 ;#####################Carrots
 WinActivate, AHK_exe RobloxPlayerBeta.exe
 Sleep 500
