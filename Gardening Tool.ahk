@@ -11,7 +11,7 @@ Menu, Tray, Icon, RobloxIcon.png
 Gui -Resize
 Gui -MinimizeBox
 Gui, Show, w260 h250 x1654 y580 NoActivate, Gardening Tool
-WinSet, AlwaysOnTop, 1, Gardening Tool ;                                       ##########Double check this before compiling for people
+;WinSet, AlwaysOnTop, 1, Gardening Tool ;                                       ##########Double check this before compiling for people
 Gui, Font, s7
 Gui, Add, Checkbox, x0 y0 vAlwaysOnTop gToggleAlwaysOnTop, Always On Top
 ; Gui, Font, s14 cGreen
@@ -19,8 +19,11 @@ Gui, Add, Checkbox, x0 y0 vAlwaysOnTop gToggleAlwaysOnTop, Always On Top
 Gui, Font, s7
 Gui, Add, Button, y12 x215 gUpdate, Update
 Gui, Font, s13
-Gui, Add, Button, y35 x5 gSingleSeeds, Single Seeds
+Gui, Add, Button, y40 x5 gSingleSeeds, Single Seeds
+;Gui, Add, Button, y+7 x5 gEverything, Valuable Seeds
 Gui, Add, Button, y+7 x5 gEverything, All Seeds
+Gui, Add, Button, y+7 x5 gGears, All Gears
+
 Gui, Font, s7 cBlack
 Gui, Add, Text, x0 y238 BackgroundTrans, 1920x1080
 Gui, Add, Text, x175 y238 BackgroundTrans, Made By Kcufyttit
@@ -36,6 +39,199 @@ UrlDownloadToFile, https://github.com/Kcufyttit/GrowAGarden-Tool/archive/refs/he
 MsgBox, Close the tool and you should find the new Update.zip`nJust extract the contents and replace the old files for the new tool!
 ExitApp
 return
+
+Gears:
+WinActivate, AHK_exe RobloxPlayerBeta.exe
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
+Progress, b fs30 ctRed cwBlack h60 w500 zh0 y900, Press Esc/Escape to stop!
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
+Sleep 500
+Send, {sc029}
+Sleep 500
+Click, 1180, 675
+Sleep 500
+Send Wrench
+Click, 675, 725
+Sleep 500
+Click, 985, 450
+Sleep 500
+Send e
+Sleep 500
+Loop,
+{
+WinActivate, AHK_exe RobloxPlayerBeta.exe
+Sleep 500
+Mousemove, 950, 600
+Sleep 500
+;########Lollipop
+Send {WheelDown 50}
+Sleep 500
+Click, 724, 744
+Sleep 500
+Loop, 20
+{
+Click, 765, 845
+}
+Sleep 500
+;######## Grand sprinkler
+Click, 720, 625
+Sleep 500
+Click, 730, 510
+Sleep 500
+Loop, 20
+{
+Click, 765, 825
+}
+Sleep 500
+Click 725, 615
+Sleep 500
+Send {WheelUp 4}
+;########Harvest tool
+Sleep 500
+Click, 700, 700
+Sleep 500
+Loop, 20
+{
+Click, 770, 800
+}
+Sleep 500
+Click, 725, 585
+Sleep 500
+Send {WheelUp 1}
+;########Favorite Tool
+Sleep 500
+Click, 730, 530
+Sleep 500
+Loop, 20
+{
+Click, 780, 790
+}
+Sleep 500
+Click, 730, 615
+Sleep 500
+Send {WheelUp 3}
+;########Cleaning Shard
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 775
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########Cleaning Spray
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 775
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########Master Sprinkler
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 775
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########Mag Glass
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 740
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########God Sprinkler
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 740
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########Med Treat
+Sleep 500
+Click, 730, 785
+Sleep 500
+Loop, 20
+{
+Click, 765, 720
+}
+Sleep 500
+Click, 725, 590
+Sleep 500
+Send {WheelUp 3}
+;########Med Toy
+Sleep 500
+Click, 730, 725
+Sleep 500
+Loop, 20
+{
+Click, 765, 720
+}
+Sleep 500
+Click, 725, 525
+Sleep 500
+Send {WheelUp 3}
+;########Advance Sprinkler
+Sleep 500
+Click, 730, 685
+Sleep 500
+Loop, 20
+{
+Click, 765, 700
+}
+Sleep 500
+Click, 725, 500
+Sleep 500
+Send {WheelUp 3}
+;########Basic sprinkler
+Sleep 500
+Click, 730, 685
+Sleep 500
+Loop, 20
+{
+Click, 765, 685
+}
+Sleep 500
+Click, 725, 485
+Sleep 500
+Send {WheelUp 10}
+;########Water Can
+Sleep 500
+Click, 730, 450
+Sleep 500
+Loop, 20
+{
+Click, 765, 645
+}
+Sleep 500
+Click, 725, 450
+Sleep 500
+}
+return 
+
 
 
 SingleSeeds:
