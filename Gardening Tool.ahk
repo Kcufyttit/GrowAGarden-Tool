@@ -3,59 +3,29 @@
 #SingleInstance force
 FileInstall, RobloxBackground.png, RobloxBackground.png
 FileInstall, RobloxIcon.png, RobloxIcon.png
+FileInstall, Back.png, Back.png
 
 
 
 Menu, Tray, Icon, RobloxIcon.png
 Gui -Resize
 Gui -MinimizeBox
-Gui, Show, w260 h620 x1333 y280 NoActivate, Gardening Tool
-WinSet, AlwaysOnTop, 1, Gardening Tool
+Gui, Show, w260 h250 x1654 y580 NoActivate, Gardening Tool
+WinSet, AlwaysOnTop, 1, Gardening Tool ;                                       ##########Double check this before compiling for people
 Gui, Font, s7
 Gui, Add, Checkbox, x0 y0 vAlwaysOnTop gToggleAlwaysOnTop, Always On Top
-;Gui, Add, Button, x0 y0 gRefresh, Reload
-Gui, Font, s14 cGreen
-Gui, Add, Text, y35 x2 BackgroundTrans, Seeds
-; Gui, Font, s13 w1000 cRed
-; Gui, Add, Text, y0 x183 BackgroundTrans, Press
-; Gui, Add, Text, y+3 x190 BackgroundTrans, ESC
-; Gui, Add, Text, y+3 x198 BackgroundTrans, To
-; Gui, Add, Text, y+3 x187 BackgroundTrans, Stop
+; Gui, Font, s14 cGreen
+; Gui, Add, Text, y10 x2 BackgroundTrans, Seeds
 Gui, Font, s7
 Gui, Add, Button, y12 x215 gUpdate, Update
 Gui, Font, s13
-Gui, Add, Button, y75 x130 gEverything, ALL`nSEEDS
-Gui, Add, Button, y57 x5 gCarrots, Carrots
-Gui, Add, Button, y+5 x5 gStrawberry, Strawberry
-Gui, Add, Button, y+5 x5 gBlueberry, Blueberry
-Gui, Add, Button, y+5 x5 gTulips, Tulips
-Gui, Add, Button, y+5 x5 gTomato, Tomato
-Gui, Add, Button, y+5 x5 gCorn, Corn
-Gui, Add, Button, y+5 x5 gDaffodil, Daffodil
-Gui, Add, Button, y+5 x5 gWatermelon, Watermelon
-Gui, Add, Button, y+5 x5 gPumpkin, Pumpkin
-Gui, Add, Button, y+5 x5 gApple, Apple
-Gui, Add, Button, y+5 x5 gBamboo, Bamboo
-Gui, Add, Button, y+5 x5 gCoconut, Coconut
-Gui, Add, Button, y+5 x5 gCactus, Cactus
-Gui, Add, Button, y+5 x5 gDragonFruit, DragonFruit
-Gui, Add, Button, y136 x130 gMango, Mango
-Gui, Add, Button, y+5 x130 gGrape, Grape
-Gui, Add, Button, y+5 x130 gMushroom, Mushroom
-Gui, Add, Button, y+5 x130 gPepper, Pepper
-Gui, Add, Button, y+5 x130 gCacao, Cacao
-Gui, Add, Button, y+5 x130 gBeanstalk, Beanstalk
-Gui, Add, Button, y+5 x130 gEmberLily, EmberLily
-Gui, Add, Button, y+5 x130 gSugarApple, SugarApple
-Gui, Add, Button, y+5 x130 gBurningBud, BurningBud
-Gui, Add, Button, y+5 x130 gPinecone, Pinecone
-Gui, Add, Button, y+5 x130 gElderBerry, ElderBerry
-Gui, Add, Button, y+5 x130 gRomanesco, Romanesco
-Gui, Font, s6 cBlack
-Gui, Add, Text, x0 y612 BackgroundTrans, 1920x1080
-Gui, Add, Text, x200 y612 BackgroundTrans, Made By Kcufyttit
+Gui, Add, Button, y35 x5 gSingleSeeds, Single Seeds
+Gui, Add, Button, y+7 x5 gEverything, All Seeds
 Gui, Font, s7 cBlack
-Gui, Add, Text, x237 y0 BackgroundTrans, V3.6
+Gui, Add, Text, x0 y238 BackgroundTrans, 1920x1080
+Gui, Add, Text, x175 y238 BackgroundTrans, Made By Kcufyttit
+Gui, Font, s7 cBlack
+Gui, Add, Text, x235 y0 BackgroundTrans, V4.8
 Gui, Add, Picture, x0 y0 w260 h620, RobloxBackground.png
 Return
 
@@ -67,6 +37,50 @@ MsgBox, Close the tool and you should find the new Update.zip`nJust extract the 
 ExitApp
 return
 
+
+SingleSeeds:
+Gui, 1: Hide
+Gui, 2: +AlwaysOnTop
+Gui, 2: Show, w260 h620 x1654 y390 NoActivate, Gardening Tool
+Gui, 2: Add, Picture, BackgroundTrans w50 h50 x2 y2 gBack, Back.png
+Gui, 2: Font, s13
+Gui, 2: Add, Button, y57 x5 gCarrots, Carrots
+Gui, 2: Add, Button, y+5 x5 gStrawberry, Strawberry
+Gui, 2: Add, Button, y+5 x5 gBlueberry, Blueberry
+Gui, 2: Add, Button, y+5 x5 gTulips, Tulips
+Gui, 2: Add, Button, y+5 x5 gTomato, Tomato
+Gui, 2: Add, Button, y+5 x5 gCorn, Corn
+Gui, 2: Add, Button, y+5 x5 gDaffodil, Daffodil
+Gui, 2: Add, Button, y+5 x5 gWatermelon, Watermelon
+Gui, 2: Add, Button, y+5 x5 gPumpkin, Pumpkin
+Gui, 2: Add, Button, y+5 x5 gApple, Apple
+Gui, 2: Add, Button, y+5 x5 gBamboo, Bamboo
+Gui, 2: Add, Button, y+5 x5 gCoconut, Coconut	
+Gui, 2: Add, Button, y+5 x5 gCactus, Cactus
+Gui, 2: Add, Button, y+5 x5 gDragonFruit, DragonFruit
+Gui, 2: Add, Button, y136 x130 gMango, Mango
+Gui, 2: Add, Button, y+5 x130 gGrape, Grape
+Gui, 2: Add, Button, y+5 x130 gMushroom, Mushroom
+Gui, 2: Add, Button, y+5 x130 gPepper, Pepper
+Gui, 2: Add, Button, y+5 x130 gCacao, Cacao
+Gui, 2: Add, Button, y+5 x130 gBeanstalk, Beanstalk
+Gui, 2: Add, Button, y+5 x130 gEmberLily, EmberLily
+Gui, 2: Add, Button, y+5 x130 gSugarApple, SugarApple
+Gui, 2: Add, Button, y+5 x130 gBurningBud, BurningBud
+Gui, 2: Add, Button, y+5 x130 gPinecone, Pinecone
+Gui, 2: Add, Button, y+5 x130 gElderBerry, ElderBerry
+Gui, 2: Add, Button, y+5 x130 gRomanesco, Romanesco
+Gui, 2: Font, s6 cBlack
+Gui, 2: Add, Text, x0 y612 BackgroundTrans, 1920x1080
+Gui, 2: Add, Text, x200 y612 BackgroundTrans, Made By Kcufyttit
+Gui, 2: Font, s7 cBlack
+Gui, 2: Add, Text, x237 y0 BackgroundTrans, V3.6
+Gui, 2: Add, Picture, x0 y0 w260 h620, RobloxBackground.png
+return
+
+Back:
+Reload
+return
 
 Everything:
 Loop, 
