@@ -4,20 +4,31 @@
 FileInstall, RobloxBackground.png, RobloxBackground.png
 FileInstall, RobloxIcon.png, RobloxIcon.png
 FileInstall, Back.png, Back.png
+FileInstall, Gear.jpg, Gear.jpg
 
-
+Gui, 5: -Caption	
+Gui, 5: -Resize
+Gui, 5: -MinimizeBox
+Gui, 5: -Border
+Gui, 5: Show, w180 h60 x1382 y106, Gearshop, Gearshop
+Gui, 5: Add, Picture, w180 h60 x0 y0 gGearIcon, Gear.jpg
+  Winget, id, id, A
+  WinSet, ExStyle, ^0x80,  ahk_id %id% ; 0x80 is WS_EX_TOOLWINDOW, This hides from alt+tab
 
 Menu, Tray, Icon, RobloxIcon.png
 Gui -Resize
 Gui -MinimizeBox
 Gui, Show, w260 h250 x1654 y580 NoActivate, Gardening Tool
 ;WinSet, AlwaysOnTop, 1, Gardening Tool ;                                       ##########Double check this before compiling for people
+WinSet, AlwaysOnTop, 1, Gearshop ;                                             ##########Double check this before compiling for people
 Gui, Font, s7
 Gui, Add, Checkbox, x0 y0 vAlwaysOnTop gToggleAlwaysOnTop, Always On Top
+Gui, Add, Checkbox, x+5 y0 Checked vGearIcon gToggleGearIcon, Gear Button
 ; Gui, Font, s14 cGreen
 ; Gui, Add, Text, y10 x2 BackgroundTrans, Seeds
 Gui, Font, s7
 Gui, Add, Button, y12 x215 gUpdate, Update
+; Gui, Add, Button, y+5 x200 gChangelog, Changelog
 Gui, Font, s13
 Gui, Add, Button, y40 x5 gSingleSeeds, Single Seeds
 ;Gui, Add, Button, y+7 x5 gEverything, Valuable Seeds
@@ -28,16 +39,37 @@ Gui, Font, s7 cBlack
 Gui, Add, Text, x0 y238 BackgroundTrans, 1920x1080
 Gui, Add, Text, x175 y238 BackgroundTrans, Made By Kcufyttit
 Gui, Font, s7 cBlack
-Gui, Add, Text, x235 y0 BackgroundTrans, V4.8
+Gui, Add, Text, x235 y0 BackgroundTrans, V4.11
 Gui, Add, Picture, x0 y0 w260 h620, RobloxBackground.png
 Return
 
-
+; Changelog:
+; MsgBox, Added a button to collect All Gears from shop`nMade a Gear button at the top of the screen simular to Seeds/Garden/Sell
+; return
 
 Update:
 UrlDownloadToFile, https://github.com/Kcufyttit/GrowAGarden-Tool/archive/refs/heads/main.zip, Update.zip
 MsgBox, Close the tool and you should find the new Update.zip`nJust extract the contents and replace the old files for the new tool!
 ExitApp
+return
+
+GearIcon:
+WinActivate, AHK_exe RobloxPlayerBeta.exe
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
+Progress, b fs30 ctRed cwBlack h60 w500 zh0 y900, Press Esc/Escape to stop!
+WinSet, TransColor, Black, AHK_exe Gardening Tool.exe
+Sleep 500
+Send, {sc029}
+Sleep 500
+Click, 1270, 675
+Sleep 500
+Click, 1180, 675
+Sleep 500
+Send Wrench
+Sleep 500
+Click, 675, 725 ; top left item
+Sleep 500
+Click, 985, 450 ; above head
 return
 
 Gears:
@@ -1565,12 +1597,24 @@ Return
 ToggleAlwaysOnTop:
     GuiControlGet, AlwaysOnTop  ; Get the current state of the checkbox (1 if checked, 0 if unchecked)
     if AlwaysOnTop {
+	    ;WinSet, AlwaysOnTop, 1, Gearshop ; 
         WinSet, AlwaysOnTop, 1, Gardening Tool ; Turn "Always on Top" on
     } else {
         WinSet, AlwaysOnTop, 0, Gardening Tool ; Turn "Always on Top" off
+		;WinSet, AlwaysOnTop, 0, Gearshop 
     }
 return
 
+ToggleGearIcon:
+    GuiControlGet, GearIcon  ; Get the current state of the checkbox (1 if checked, 0 if unchecked)
+    if GearIcon {
+	Gui, 5: Show
+		WinSet, AlwaysOnTop, 1, Gearshop 
+    } else {
+		WinSet, AlwaysOnTop, 0, Gearshop 
+		Gui, 5: Hide
+    }
+return
 
 Refresh:
 Reload
