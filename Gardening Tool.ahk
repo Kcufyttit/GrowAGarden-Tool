@@ -70,6 +70,7 @@ Sleep 500
 Click, 675, 725 ; top left item
 Sleep 500
 Click, 985, 450 ; above head
+Progress, off
 return
 
 Gears:
